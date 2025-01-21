@@ -1,0 +1,372 @@
+[gd_scene load_steps=14 format=3 uid="uid://h0o4yo31jc3n"]
+
+[ext_resource type="Theme" uid="uid://w85hvvu8k4uv" path="res://GUItheme/defaulttheme.tres" id="1_3aryo"]
+[ext_resource type="Script" path="res://main.gd" id="1_enhf6"]
+[ext_resource type="Texture2D" uid="uid://7na0ih0lm1wj" path="res://tempMem.png" id="3_ju6k8"]
+[ext_resource type="VideoStream" path="res://mtwlogo/mtwcroppednoSound.ogv" id="3_sf5ir"]
+[ext_resource type="Texture2D" uid="uid://bh72lc2a3gvtp" path="res://mtwlogo/boxType5.png" id="4_c432r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3rxw"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i2wox"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ffnhl"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ad1le"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tp5kb"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_pb6q1"]
+offsets = PackedFloat32Array(0, 0.485, 1)
+colors = PackedColorArray(0, 0, 0.470588, 1, 1, 1, 1, 1, 0, 0, 0.470588, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_cktrd"]
+gradient = SubResource("Gradient_pb6q1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_pi75t"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3aryo")
+script = ExtResource("1_enhf6")
+
+[node name="Base" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSPArea" type="MarginContainer" parent="Base"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 50.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="Base/VSPArea"]
+layout_mode = 2
+stream = ExtResource("3_sf5ir")
+autoplay = true
+expand = true
+loop = true
+
+[node name="TypeContainer" type="VBoxContainer" parent="Base"]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 72.0
+offset_bottom = 130.0
+
+[node name="TypeSelect" type="MenuButton" parent="Base/TypeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.151276, 0.151276, 0.151276, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_u3rxw")
+text = "机型(Model)"
+icon_alignment = 1
+item_count = 3
+popup/item_0/text = "M型卷膜正套(标准机)"
+popup/item_0/id = 0
+popup/item_1/text = "平口型卷膜制具式套袋"
+popup/item_1/id = 1
+popup/item_2/text = "M型卷膜制具式套袋"
+popup/item_2/id = 2
+
+[node name="Typelabel" type="Label" parent="Base/TypeContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BoxContainer" type="VBoxContainer" parent="Base"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 136.0
+offset_bottom = 280.0
+
+[node name="BoxSelect" type="MenuButton" parent="Base/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.163861, 0.163861, 0.163861, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_i2wox")
+text = "产品选择(Product Selection)"
+item_count = 5
+popup/item_0/text = "长方形纸箱"
+popup/item_0/id = 0
+popup/item_1/text = "正方形纸箱"
+popup/item_1/id = 1
+popup/item_2/text = "圆桶"
+popup/item_2/id = 2
+popup/item_3/text = "胶框"
+popup/item_3/id = 3
+popup/item_4/text = "正方形桶"
+popup/item_4/id = 4
+
+[node name="Boxlabel" type="Label" parent="Base/BoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="SizeContainer" type="VBoxContainer" parent="Base"]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 70.0
+offset_right = 484.0
+offset_bottom = 267.0
+
+[node name="lengthLabel" type="Label" parent="Base/SizeContainer"]
+layout_mode = 2
+text = "长(Length,mm)"
+label_settings = SubResource("LabelSettings_ffnhl")
+
+[node name="lengthEdit" type="LineEdit" parent="Base/SizeContainer"]
+layout_mode = 2
+
+[node name="widthLabel" type="Label" parent="Base/SizeContainer"]
+layout_mode = 2
+text = "宽(Width,mm)"
+label_settings = SubResource("LabelSettings_ffnhl")
+
+[node name="widthEdit" type="LineEdit" parent="Base/SizeContainer"]
+layout_mode = 2
+
+[node name="heightLabel" type="Label" parent="Base/SizeContainer"]
+layout_mode = 2
+text = "高(Height,mm)"
+label_settings = SubResource("LabelSettings_ffnhl")
+
+[node name="heightEdit" type="LineEdit" parent="Base/SizeContainer"]
+layout_mode = 2
+
+[node name="InputsContainer" type="VBoxContainer" parent="Base"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 50.0
+offset_right = 1104.0
+offset_bottom = 344.0
+
+[node name="clarger" type="Label" parent="Base/InputsContainer"]
+layout_mode = 2
+text = "环比周长大小
+(Circumference Difference,mm)"
+label_settings = SubResource("LabelSettings_ad1le")
+
+[node name="clargerEdit" type="LineEdit" parent="Base/InputsContainer"]
+layout_mode = 2
+
+[node name="thickness" type="Label" parent="Base/InputsContainer"]
+layout_mode = 2
+text = "膜厚度(Film Thickness unit,丝):"
+label_settings = SubResource("LabelSettings_ad1le")
+
+[node name="thicknessEdit" type="LineEdit" parent="Base/InputsContainer"]
+layout_mode = 2
+
+[node name="unitprice" type="Label" parent="Base/InputsContainer"]
+layout_mode = 2
+text = "卷膜市场价(Film price,元/kg)"
+label_settings = SubResource("LabelSettings_ad1le")
+
+[node name="unitpriceEdit" type="LineEdit" parent="Base/InputsContainer"]
+layout_mode = 2
+
+[node name="weight" type="Label" parent="Base/InputsContainer"]
+layout_mode = 2
+text = "卷膜重量(Film weight,kg)"
+label_settings = SubResource("LabelSettings_ad1le")
+
+[node name="weightEdit" type="LineEdit" parent="Base/InputsContainer"]
+layout_mode = 2
+
+[node name="DisplayContainer" type="MarginContainer" parent="Base"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 50.0
+offset_right = 770.0
+offset_bottom = 320.0
+
+[node name="Boxillustrate" type="TextureRect" parent="Base/DisplayContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_c432r")
+expand_mode = 1
+
+[node name="lengthShow" type="Label" parent="Base"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 730.0
+offset_top = 300.0
+offset_right = 761.0
+offset_bottom = 334.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_tp5kb")
+
+[node name="widthShow" type="Label" parent="Base"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 620.0
+offset_top = 280.0
+offset_right = 651.0
+offset_bottom = 314.0
+size_flags_horizontal = 0
+label_settings = SubResource("LabelSettings_tp5kb")
+
+[node name="heightShow" type="Label" parent="Base"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 565.0
+offset_top = 160.0
+offset_right = 596.0
+offset_bottom = 194.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_tp5kb")
+
+[node name="divider" type="TextureRect" parent="Base"]
+layout_mode = 0
+offset_top = 350.0
+offset_right = 1152.0
+offset_bottom = 390.0
+texture = SubResource("GradientTexture1D_cktrd")
+
+[node name="CalcBtn" type="Button" parent="Base"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = 26.0
+offset_right = 28.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "计算(Calculation)"
+
+[node name="membraneContainer" type="MarginContainer" parent="Base"]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 350.0
+offset_right = 1150.0
+offset_bottom = 650.0
+
+[node name="membraneillustrate" type="TextureRect" parent="Base/membraneContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+texture = ExtResource("3_ju6k8")
+expand_mode = 1
+
+[node name="membraneWidthShow" type="Label" parent="Base/membraneContainer"]
+layout_mode = 2
+
+[node name="sideBarlengthShow" type="Label" parent="Base/membraneContainer"]
+layout_mode = 2
+
+[node name="sideBarMPD" type="Label" parent="Base/membraneContainer"]
+layout_mode = 2
+
+[node name="singleWeight" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 430.0
+offset_right = 251.0
+offset_bottom = 458.0
+text = "单袋重量(weight/pcs)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="estmemNum" type="Label" parent="Base"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -169.0
+offset_right = 245.0
+offset_bottom = -110.0
+grow_vertical = 0
+text = "整卷袋子数量
+(Number of bags)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="singlememCost" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 388.0
+offset_right = 236.0
+offset_bottom = 416.0
+text = "单袋成本(cost/pcs)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="memDensity" type="Label" parent="Base"]
+layout_mode = 0
+offset_top = 577.0
+offset_right = 184.0
+offset_bottom = 605.0
+text = "膜密度g/cm³: 0.945"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="memWidth" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 400.0
+offset_right = 735.0
+offset_bottom = 428.0
+text = "膜宽(Bag Width)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="sideBar" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 450.0
+offset_right = 781.0
+offset_bottom = 478.0
+text = "插边(gussets Length)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="memCF" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 839.0
+offset_bottom = 528.0
+text = "膜周长(Bag Circumference)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[node name="memLen" type="Label" parent="Base"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 550.0
+offset_right = 759.0
+offset_bottom = 578.0
+text = "膜长度(Bag length)"
+label_settings = SubResource("LabelSettings_pi75t")
+
+[connection signal="pressed" from="Base/CalcBtn" to="." method="_on_calc_btn_pressed"]

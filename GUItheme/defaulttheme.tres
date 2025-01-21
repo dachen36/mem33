@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://w85hvvu8k4uv"]
+
+[ext_resource type="FontFile" uid="uid://cpxseiuwqde62" path="res://GUItheme/songti.ttf" id="1_61o2u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojij6"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d05gp"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4st3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amyl0"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+default_font = ExtResource("1_61o2u")
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ojij6")
+Panel/styles/panel = SubResource("StyleBoxFlat_d05gp")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(0.165656, 0.165656, 0.165656, 1)
+PopupMenu/font_sizes/font_size = 24
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_i4st3")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_amyl0")
